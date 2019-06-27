@@ -1,14 +1,10 @@
 moment.locale('fr');
 const now = moment();
-console.log("On est le : " + now.format('Do MMM YYYY'));
-console.log('Nombre de jour dans le mois : ' + now.daysInMonth());
-console.log("Le 5em jour du mois est un : " + now.date(5).format('dddd'));
-
 
 let daysInMonth = now.daysInMonth();
 
 
-document.getElementById('month').innerHTML =  now.format('MMMM');
+document.getElementById('month').innerHTML = now.format('MMMM');
 
 let monday = document.getElementsByClassName("mon"); // return HTMLCollection
 let tuesday = document.getElementsByClassName("tue"); // return HTMLCollection
@@ -17,6 +13,10 @@ let thursday = document.getElementsByClassName("thu"); // return HTMLCollection
 let friday = document.getElementsByClassName("fri"); // return HTMLCollection
 let saturday = document.getElementsByClassName("sat"); // return HTMLCollection
 let sunday = document.getElementsByClassName("sun"); // return HTMLCollection
+
+let modal = document.querySelector('.modal');
+let trigger = document.querySelector('.cell');
+let closeButton = document.querySelector('.close-button');
 
 
 // Récupère les jours associé aux dates du mois en cours
@@ -135,11 +135,33 @@ for (let i = 1; i <= daysInMonth; i++) {
     }
 
     //  Grise les cases sans numéros
-    let grisedCase = document.getElementsByTagName('td');
+    let greyCell = document.getElementsByTagName('td');
 
-    if (grisedCase.item(i-1).innerHTML == "x") {
-        grisedCase.item(i-1).setAttribute('style', 'background: gainsboro; cursor: not-allowed; ');
+    if (greyCell.item(i - 1).innerHTML == "x") {
+        greyCell.item(i - 1).setAttribute('style', 'background: gainsboro; cursor: not-allowed; ');
     }
+
+    // Les Modales c'est trop rigolo hihhihihihihihihihihihihi
+
+    // Affiche ou enlève la modale
+    function toggleModal() {
+        console.log('toggle');
+        modal.classList.toggle('show-modal');
+    }
+
+    // Agis sur l'affichage de la modale
+    function modalOnClick(event) {
+        console.log(event.target.className);
+        if (event.target.className.includes('cell') === true) {
+            toggleModal();
+            console.log('oui');
+        }
+    }
+
+    trigger.addEventListener('click', toggleModal);
+    closeButton.addEventListener('click', toggleModal);
+    window.addEventListener('click', modalOnClick);
+
 }
 
 
