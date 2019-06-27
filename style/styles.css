@@ -12,3 +12,22 @@ thead {
     border-color: inherit;
     width: 100%;
 }
+
+h1#month {
+    background: darkturquoise;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 1%;
+}
+
+th {
+    background: gainsboro;
+    font-family: monospace;
+    font-size: 1.5em;
+}
+
+td {
+    font-size: 1.2em;
+    border: 1px solid rgba(107, 107, 107, 0.11);
+    padding: 5%;
+}
