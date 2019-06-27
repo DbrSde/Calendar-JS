@@ -1,5 +1,5 @@
 moment.locale('fr');
-const now = moment().month("Juillet");
+const now = moment();
 console.log("On est le : " + now.format('Do MMM YYYY'));
 console.log('Nombre de jour dans le mois : ' + now.daysInMonth());
 console.log("Le 5em jour du mois est un : " + now.date(5).format('dddd'));
@@ -18,11 +18,13 @@ let friday = document.getElementsByClassName("fri"); // return HTMLCollection
 let saturday = document.getElementsByClassName("sat"); // return HTMLCollection
 let sunday = document.getElementsByClassName("sun"); // return HTMLCollection
 
+
 // Récupère les jours associé aux dates du mois en cours
+
 for (let i = 1; i <= daysInMonth; i++) {
     let dayName = now.date(i).format('dddd');
 
-
+    // Insère tous les numéros dans le tableau
     switch (dayName) {
         case "lundi" :
             for (let j = 0; j < monday.length; j++) {
@@ -30,7 +32,7 @@ for (let i = 1; i <= daysInMonth; i++) {
                     monday.item(j).innerHTML = i;
                     break;
                 } else {
-                  continue;
+                    continue;
                 }
             }
             break;
@@ -72,7 +74,7 @@ for (let i = 1; i <= daysInMonth; i++) {
                     thuesday.item(j).innerHTML = i;
                     break;
                 } else {
-                  continue;
+                    continue;
                 }
             }
             break;
@@ -88,7 +90,7 @@ for (let i = 1; i <= daysInMonth; i++) {
                     friday.item(j).innerHTML = i;
                     break;
                 } else {
-                  continue;
+                    continue;
                 }
             }
             break;
@@ -105,7 +107,7 @@ for (let i = 1; i <= daysInMonth; i++) {
                     saturday.item(j).innerHTML = i;
                     break;
                 } else {
-                  continue;
+                    continue;
                 }
             }
             break;
@@ -123,14 +125,23 @@ for (let i = 1; i <= daysInMonth; i++) {
                     sunday.item(j).innerHTML = i;
                     break;
                 } else {
-                  continue;
+                    continue;
                 }
             }
             break;
         default :
             console.log("Erreur : " + dayName);
             break;
+    }
 
-
-    } 
+    //  Grise les cases sans numéros
+    let grisedCase = document.getElementsByTagName('td');
+    if (grisedCase.item(i).innerHTML == "x") {
+        grisedCase.item(i).setAttribute('style', 'background: gainsboro; cursor: not-allowed; ');
+    }
 }
+
+
+
+
+
