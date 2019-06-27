@@ -13,7 +13,7 @@ document.getElementById('month').innerHTML =  now.format('MMMM');
 let monday = document.getElementsByClassName("mon"); // return HTMLCollection
 let tuesday = document.getElementsByClassName("tue"); // return HTMLCollection
 let wednesday = document.getElementsByClassName("wed"); // return HTMLCollection
-let thuesday = document.getElementsByClassName("thu"); // return HTMLCollection
+let thursday = document.getElementsByClassName("thu"); // return HTMLCollection
 let friday = document.getElementsByClassName("fri"); // return HTMLCollection
 let saturday = document.getElementsByClassName("sat"); // return HTMLCollection
 let sunday = document.getElementsByClassName("sun"); // return HTMLCollection
@@ -69,9 +69,9 @@ for (let i = 1; i <= daysInMonth; i++) {
                 tuesday.item(0).innerHTML = "x";
                 wednesday.item(0).innerHTML = "x";
             }
-            for (let j = 0; j < thuesday.length; j++) {
-                if (thuesday.item(j).innerHTML == "") {
-                    thuesday.item(j).innerHTML = i;
+            for (let j = 0; j < thursday.length; j++) {
+                if (thursday.item(j).innerHTML == "") {
+                    thursday.item(j).innerHTML = i;
                     break;
                 } else {
                     continue;
@@ -83,7 +83,7 @@ for (let i = 1; i <= daysInMonth; i++) {
                 monday.item(0).innerHTML = "x";
                 tuesday.item(0).innerHTML = "x";
                 wednesday.item(0).innerHTML = "x";
-                thuesday.item(0).innerHTML = "x";
+                thursday.item(0).innerHTML = "x";
             }
             for (let j = 0; j < friday.length; j++) {
                 if (friday.item(j).innerHTML == "") {
@@ -99,7 +99,7 @@ for (let i = 1; i <= daysInMonth; i++) {
                 monday.item(0).innerHTML = "x";
                 tuesday.item(0).innerHTML = "x";
                 wednesday.item(0).innerHTML = "x";
-                thuesday.item(0).innerHTML = "x";
+                thursday.item(0).innerHTML = "x";
                 friday.item(0).innerHTML = "x";
             }
             for (let j = 0; j < saturday.length; j++) {
@@ -116,7 +116,7 @@ for (let i = 1; i <= daysInMonth; i++) {
                 monday.item(0).innerHTML = "x";
                 tuesday.item(0).innerHTML = "x";
                 wednesday.item(0).innerHTML = "x";
-                thuesday.item(0).innerHTML = "x";
+                thursday.item(0).innerHTML = "x";
                 friday.item(0).innerHTML = "x";
                 saturday.item(0).innerHTML = "x";
             }
@@ -136,8 +136,9 @@ for (let i = 1; i <= daysInMonth; i++) {
 
     //  Grise les cases sans numéros
     let grisedCase = document.getElementsByTagName('td');
-    if (grisedCase.item(i).innerHTML == "x") {
-        grisedCase.item(i).setAttribute('style', 'background: gainsboro; cursor: not-allowed; ');
+
+    if (grisedCase.item(i-1).innerHTML == "x") {
+        grisedCase.item(i-1).setAttribute('style', 'background: gainsboro; cursor: not-allowed; ');
     }
 }
 
