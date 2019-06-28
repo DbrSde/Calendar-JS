@@ -138,7 +138,7 @@ for (let i = 1; i <= daysInMonth; i++) {
     let greyCell = document.getElementsByTagName('td');
 
     if (greyCell.item(i - 1).innerHTML == "x") {
-        greyCell.item(i - 1).setAttribute('style', 'background: gainsboro; cursor: not-allowed; ');
+        greyCell.item(i - 1).setAttribute('style', 'background: gainsboro; color: gainsboro; cursor: not-allowed; ');
     }
 
     // Les Modales c'est trop rigolo hihhihihihihihihihihihihi
